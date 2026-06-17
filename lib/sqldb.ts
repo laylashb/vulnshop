@@ -12,9 +12,9 @@ export function getDb() {
     alasql("DELETE FROM orders");
     alasql("DELETE FROM produits");
 
-    alasql("INSERT INTO users VALUES (1,'alice@vulnshop.test','azerty123','user')");
-    alasql("INSERT INTO users VALUES (2,'bob@vulnshop.test','motdepasse','user')");
-    alasql("INSERT INTO users VALUES (3,'admin@vulnshop.test','admin','admin')");
+    alasql("INSERT INTO users VALUES (1,'alice@vulnshop.test','$2b$10$jcqhyAhD1OcehE/i8UKR2OH9XuMtDr9aUO9SPrZ6cXq2Qpgxj1FN.','user')");
+    alasql("INSERT INTO users VALUES (2,'bob@vulnshop.test','$2b$10$NZLYNBxKKdPnA8iIYPQd8.PASb7tJt1adxN/TXFsFGnorfyUHBRO6','user')");
+    alasql("INSERT INTO users VALUES (3,'admin@vulnshop.test','$2b$10$5VgLSp6FQ8S0viQgktVRcuyfFn4bqiS8IvGJh2ukM/LilwGDh0XqC','admin')");
 
     alasql("INSERT INTO orders VALUES (1,1,'Clavier mécanique',89)");
     alasql("INSERT INTO orders VALUES (2,2,'Casque audio',149)");

@@ -8,9 +8,19 @@ export async function GET(
   { params }: { params: Promise<{ id: string }> }
 ) {
   const { id } = await params;
+
+  const sessionId = req.cookies.get("vulnshop_session")?.value;
+  if (!sessionId) {
+    return NextResponse.json({ error: "Non connecté" }, { status: 401 });
+  }
+
   const db = getDb();
 
-  const rows = db("SELECT * FROM orders WHERE id = ?", [Number(id)]);
+  const rows = db(
+    "SELECT * FROM orders WHERE id = ? AND userId = ?",
+    [Number(id), Number(sessionId)]
+  ) as Array<{ id: number; userId: number; produit: string; montant: number }>;
+
   if (!rows.length) {
     return NextResponse.json({ error: "Commande introuvable" }, { status: 404 });
   }

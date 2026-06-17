@@ -7,7 +7,7 @@ export default function CommentairesPage() {
       {comments.map((c) => (
         <div key={c.id}>
           <b>{c.author} :</b>{" "}
-          <span dangerouslySetInnerHTML={{ __html: c.html }} />
+          <span>{c.html}</span>
         </div>
       ))}
     </main>

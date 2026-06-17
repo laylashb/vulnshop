@@ -8,7 +8,7 @@ export default async function RecherchePage({
   return (
     <main style={{ padding: 24 }}>
       <h1>Recherche</h1>
-      <p dangerouslySetInnerHTML={{ __html: `Résultats pour : ${q}` }} />
+      <p>Résultats pour : {q}</p>
     </main>
   );
 }
